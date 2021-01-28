@@ -51,14 +51,14 @@ public class Jugador {
 		this.dorsal=dorsal;
 	}
 	
-	String getNombre(): devuelve el nombre de un jugador
-
-	String getApellidos(): devuelve los apellidos de un jugador
-
-	String getPosicion(): devuelve la posición de un jugador
-
-	String getDorsal: devuelve el dorsal de un jugador.
-	
-	
+//	String getNombre(): devuelve el nombre de un jugador
+//
+//	String getApellidos(): devuelve los apellidos de un jugador
+//
+//	String getPosicion(): devuelve la posición de un jugador
+//
+//	String getDorsal: devuelve el dorsal de un jugador.
+//	
+//	
 	
 }
