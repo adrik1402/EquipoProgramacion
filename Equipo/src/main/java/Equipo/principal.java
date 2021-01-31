@@ -8,18 +8,18 @@ public class principal {
         System.out.println("Que desea hacer: 1.Generar equipo, 2.Desordenar equipo, 3.Buscar jugador, 4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, 6.Comparar algoritmos de orden,7.salir");
         Scanner sc = new Scanner(System.in);
         int cantidadJugador;
-        int opcion;
-       generarEquipo team1 = new generarEquipo(53); 
+        int opcion = 0;
+       
     
-//        switch(opcion){
-//            case 1:System.out.println("¿Cuantos jugadores desea?");
-//                cantidadJugador = sc.nextInt();
-//                if(cantidadJugador<=100){
-//                generarEquipo();
-//                }else{
-//                    System.out.println("Error.");
-//                }
-//                break;
+        switch(opcion){
+            case 1:System.out.println("¿Cuantos jugadores desea?");
+                cantidadJugador = sc.nextInt();
+                if(cantidadJugador<=100){
+                generarEquipo(cantidadJugador);
+                }else{
+                    System.out.println("Error.");
+                }
+                break;
 //            case 2:desordenarEquipo();
 //            case 3:buscarJugador();
 //            case 4:ordenarEquipoBubble();

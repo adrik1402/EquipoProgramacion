@@ -61,6 +61,7 @@ public class Jugador {
         // MODIFICA LA POSICION.
 	public void setPosicion (String posicion) {
 		if (validacion(posicion)) {
+                        posicion = this.posiciones[new Random().nextInt(this.posiciones.length)];
 			this.posicion=posicion;
 		}else {
 			System.out.println("Error");
@@ -85,7 +86,7 @@ public class Jugador {
 
 	// MODIFICA EL DORSAL.
 	private void setDorsal (int dorsal) {
-		dorsal = (int)(Math.random()*23);
+		dorsal = (int)(Math.random()*100);
 		this.dorsal=dorsal;
 	}
 	
