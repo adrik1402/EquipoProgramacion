@@ -1,4 +1,4 @@
-package Equipo;
+package equipoprogra;
 
 public class Jugador {
 	private String nombre;

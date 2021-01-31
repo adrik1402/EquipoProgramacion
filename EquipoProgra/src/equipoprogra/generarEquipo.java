@@ -1,4 +1,4 @@
-package Equipo;
+package equipoprogra;
         
 import java.util.Scanner;
         
