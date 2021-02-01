@@ -1,38 +1,52 @@
 
 package Equipo;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class principal {
     public static void main(String[] args){
-        System.out.println("Que desea hacer: 1.Generar equipo, 2.Desordenar equipo, 3.Buscar jugador, 4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, 6.Comparar algoritmos de orden,7.salir");
-        Scanner sc = new Scanner(System.in);
-        int cantidadJugador;
-        int opcion = 0;
+        int opcion;
+        int cantidadJ;
+//      System.out.println("Que desea hacer: 1.Generar equipo, 2.Desordenar equipo, 3.Buscar jugador, 4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, 6.Comparar algoritmos de orden,7.salir");
+      Scanner sc = new Scanner(System.in);
+        
+ 
        
+        }
     
-        switch(opcion){
-            case 1:System.out.println("¿Cuantos jugadores desea?");
-                cantidadJugador = sc.nextInt();
-                if(cantidadJugador<=100){
-                generarEquipo(cantidadJugador);
-                }else{
-                    System.out.println("Error.");
-                }
-                break;
-//            case 2:desordenarEquipo();
-//            case 3:buscarJugador();
-//            case 4:ordenarEquipoBubble();
-//            case 5:ordenarEquipoQuick();
-//            case 6:compararAlgoritmos();
-//            default: System.out.println("Error");
-//        }
+         public static Jugador[] generarEquipo(int cantidad){
+            Jugador[] plantilla= new Jugador[cantidad];
+            for(int i=0;i<=cantidad;i++){
+                String nombre= nombreAleatorio();
+                String apellidos= apellidosAleatorio();
+                String posicion= posicionAleatoria();
+                plantilla[i] = new Jugador(nombre,apellidos,posicion,i);
+            }return plantilla;
+        }
+         
+         public static String nombreAleatorio(){
+             String[] nombresAleatorios = new String[1];
+		String[] nombres = { "Besame", "David", "Baldomero", "Balduino", "Paco", "Baltasar", "Barry", "Bartolo",
+				"Bartolomé", "Baruc", "Baruj", "Candelaria", "Cándida", "Canela", "Caridad", "Rosame", "Jony",
+				"Caritina", "Carlota", "Baltazar"};
+                return nombres[(int) (Math.floor(Math.random() * (nombres.length)))];
+         }
+         public static String apellidosAleatorio(){
+             String[] apellidosAleatorios = new String[2];
+                
+		String[] apellido = { "Gomez", "Guerrero", "Elnavo", "Cardiel", "Cardona", "Cardoso", "Cariaga", "Melavo",
+				"Carion", "Castiyo", "Castorena", "Castro", "Grande", "Grangenal", "Grano", "Grasia", "Elano",
+				"Grigalva","Kalvani","Carrillo","Castillo" };
+                
+                 return apellido[(int) (Math.floor(Math.random() * (apellido.length)))] + " "+  apellido [(int) (Math.floor(Math.random() * (apellido.length)))];
+         }
+         public static String posicionAleatoria(){
+               String [] posicion = {"Portero","Defensa","Defensa","Defensa","Defensa","Centrocampista","Centrocampista","Centrocampista","Centrocampista","Delantero","Delantero","Delantero"};
+               return posicion[(int) (Math.floor(Math.random() * (posicion.length)))];
+         }
+    }
     
-
-
-    
-    }   
-}
 
 
 

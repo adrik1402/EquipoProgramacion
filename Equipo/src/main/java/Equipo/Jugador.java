@@ -13,10 +13,6 @@ public class Jugador {
 
 //METODOS
         
-        //LLAMA AL JUGADOR
-        public void mostrarJugador(){
-            System.out.println(this.nombre+" "+this.apellidos+" "+this.posicion+" "+this.dorsal);
-        }
         
         // GENERADOR DE JUGADOR
 	public Jugador (String nombre, String apellidos, String posicion, int dorsal) {
@@ -28,11 +24,7 @@ public class Jugador {
 	}
         // MODIFICA EL NOMBRE.
 	public void setNombre (String nombre) {
-		String[] nombresAleatorios = new String[1];
-		String[] nombres = { "Besame", "David", "Baldomero", "Balduino", "Paco", "Baltasar", "Barry", "Bartolo",
-				"Bartolomé", "Baruc", "Baruj", "Candelaria", "Cándida", "Canela", "Caridad", "Rosame", "Jony",
-				"Caritina", "Carlota", "Baltazar"};
-                nombre = nombres[new Random().nextInt(nombres.length)];
+            
                 this.nombre=nombre;
 	}
         // GENERA EL NOMBRE.
@@ -41,15 +33,8 @@ public class Jugador {
         }
 
         // MODIFICA EL APELLIDO.
-	public void setApellidos (String apellidos) {
-                
-		String[] apellidosAleatorios = new String[2];
-                
-		String[] apellido = { "Gomez", "Guerrero", "Elnavo", "Cardiel", "Cardona", "Cardoso", "Cariaga", "Melavo",
-				"Carion", "Castiyo", "Castorena", "Castro", "Grande", "Grangenal", "Grano", "Grasia", "Elano",
-				"Grigalva","Kalvani","Carrillo","Castillo" };
-                
-                apellidos = apellido[new Random().nextInt(apellido.length)] +" " + apellido[new Random().nextInt(apellido.length)];
+	public void setApellidos (String apellidos) {               
+		
                 this.apellidos=apellidos;
 	}
         
@@ -61,7 +46,6 @@ public class Jugador {
         // MODIFICA LA POSICION.
 	public void setPosicion (String posicion) {
 		if (validacion(posicion)) {
-                        posicion = this.posiciones[new Random().nextInt(this.posiciones.length)];
 			this.posicion=posicion;
 		}else {
 			System.out.println("Error");
@@ -86,7 +70,6 @@ public class Jugador {
 
 	// MODIFICA EL DORSAL.
 	private void setDorsal (int dorsal) {
-		dorsal = (int)(Math.random()*100);
 		this.dorsal=dorsal;
 	}
 	
