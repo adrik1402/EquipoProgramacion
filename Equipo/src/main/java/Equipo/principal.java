@@ -48,7 +48,7 @@ public class principal {
 
                
     }
-    
+         //Funcion Generar Equipo.
          public static Jugador[] generarEquipo(int cantidad){
             Jugador[] plantilla= new Jugador[cantidad];
             for(int i=0;i<cantidad;i++){
@@ -59,6 +59,7 @@ public class principal {
             }return plantilla;
         }
          
+         //Funcion Desordenar  Equipo
          public static Jugador[] desordenarEquipo(Jugador[] plantilla){
              int random=(int)Math.floor(Math.random()*100);
  
@@ -73,7 +74,7 @@ public class principal {
              }return plantilla;
              
          } 
-        
+         //Funcion BusquedaBinaria
          public static int busquedaBinaria(Jugador[]plantilla,int numero){
              int izq=0;
              int der=plantilla.length-1;
@@ -96,10 +97,11 @@ public class principal {
              }
          }
          
-         
+         //Funcion BubbleSort
          public static Jugador[] bubbleSort(Jugador[] player){
              int n=player.length;
              Jugador temp;
+             int contador=1;
              boolean ordenado=false;
              for(int i=0;i<n;i++){
                  if(ordenado){
@@ -112,13 +114,41 @@ public class principal {
                          player[j]=player[j+1];
                          player[j+1]=temp;
                          ordenado=false;
+                         System.out.println("Numero de pasos: "+contador);
+                         contador++;
                      }
                  }
              }return player;
          }
          
+         //Funcion QuickSort
+         public static void quickSort(Jugador[]player, int izq,int der){
          
+             int pivote=player[izq].getDorsal();
+             int i=izq;
+             int j=der;
+            Jugador temp;
+             
+             while(i<j){
+                 while(player[i].getDorsal()<=pivote && i<j){
+                     i++;
+                 }
+                 while(player[j].getDorsal()>pivote){
+                     j--;
+                 }
+                    if(i<j){
+                        temp=player[i];
+                        player[i]=player[j];
+                        player[j]=temp;
+                    }
+             }
+             
+             
+             
+             if(izq<j-1) quickSort(player,izq,j-1);
+             if(der>j+1) quickSort(player,j+1,der);
          
+        }
          
          
          
@@ -147,7 +177,7 @@ public class principal {
                return posicion[(int) (Math.floor(Math.random() * (posicion.length)))];
          }
          
-    }
+ }
     
 
 
