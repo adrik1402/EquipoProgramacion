@@ -9,19 +9,24 @@ public class Jugador {
 	private String apellidos;
 	private String [] posiciones = {"Portero","Defensa","Centrocampista","Delantero"};
 	private String posicion;
-	private int dorsal;
+	int dorsal;
 
 //METODOS
         
         
         // GENERADOR DE JUGADOR
-	public Jugador (String nombre, String apellidos, String posicion, int dorsal) {
+	public  Jugador (String nombre, String apellidos, String posicion, int dorsal) {
 		this.nombre=nombre;
 		this.apellidos=apellidos;
 		this.posicion=posicion;
 		this.dorsal=dorsal;
 		
 	}
+        
+        public void imprimir(){
+            System.out.println(this.nombre+"\t"+this.apellidos+"\t"+this.posicion+"\t"+this.dorsal);
+        }
+        
         // MODIFICA EL NOMBRE.
 	public void setNombre (String nombre) {
             
