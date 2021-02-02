@@ -24,7 +24,7 @@ public class Jugador {
 	}
         
         public void imprimir(){
-            System.out.println(this.nombre+"\t"+this.apellidos+"\t"+this.posicion+"\t"+this.dorsal);
+            System.out.println(this.nombre+" "+this.apellidos+" "+this.posicion+" "+this.dorsal);
         }
         
         // MODIFICA EL NOMBRE.

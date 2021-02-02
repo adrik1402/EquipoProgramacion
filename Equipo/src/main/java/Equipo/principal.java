@@ -8,11 +8,13 @@ public class principal {
     public static void main(String[] args){
         int opcion;
         int cantidad=23;
+        int dorsal=8;
         
 //      System.out.println("Que desea hacer: 1.Generar equipo, 2.Desordenar equipo, 3.Buscar jugador, 4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, 6.Comparar algoritmos de orden,7.salir");
       Scanner sc = new Scanner(System.in);
-      Jugador[] plantilla= generarEquipo(cantidad);
       
+      System.out.println("Generar Equipo: ");
+      Jugador[] plantilla= generarEquipo(cantidad);
       for(Jugador jugador:plantilla){
           jugador.imprimir();
       }
@@ -20,17 +22,29 @@ public class principal {
       System.out.println("\t");
       System.out.println("\t");
       
-        System.out.println("El dorsal esta en: "+busquedaBinaria(plantilla,cantidad));
+      
+      System.out.println("Busqueda Binaria: ");
+      System.out.println("El dorsal esta en: "+busquedaBinaria(plantilla,dorsal));
       
       
       System.out.println("\t");
       System.out.println("\t");
       
+      
+      System.out.println("Desordenar equipo: ");
       desordenarEquipo(plantilla);
       for(Jugador jugador:plantilla){
         jugador.imprimir();
       }
       
+      System.out.println("\t");
+      System.out.println("\t");
+      
+        System.out.println("Bubblesort: ");
+        bubbleSort(plantilla);
+        for(Jugador jugador:plantilla){
+        jugador.imprimir();
+      }
 
                
     }
@@ -44,6 +58,7 @@ public class principal {
                 plantilla[i] = new Jugador(nombre,apellidos,posicion,i);
             }return plantilla;
         }
+         
          public static Jugador[] desordenarEquipo(Jugador[] plantilla){
              int random=(int)Math.floor(Math.random()*100);
  
@@ -82,7 +97,25 @@ public class principal {
          }
          
          
-         
+         public static Jugador[] bubbleSort(Jugador[] player){
+             int n=player.length;
+             Jugador temp;
+             boolean ordenado=false;
+             for(int i=0;i<n;i++){
+                 if(ordenado){
+                     return player;
+                 }
+                 ordenado=true;
+                 for(int j=0;j<(n-i-1);j++){
+                     if(player[j].getDorsal()>player[j+1].getDorsal()){
+                         temp=player[j];
+                         player[j]=player[j+1];
+                         player[j+1]=temp;
+                         ordenado=false;
+                     }
+                 }
+             }return player;
+         }
          
          
          
