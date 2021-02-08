@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nomina>
+    <empresa>
+        <nombre>cesur</nombre>
+        <domicilio>el palo</domicilio>
+        <cccss>321255865</cccss>
+        <cif>7897985</cif>
+        
+    </empresa>
+    
+    <trabajador>
+        <nombre>Luis</nombre>
+        <apellido> gutierrez alonso</apellido>
+        <cp>ingeniero</cp>
+        <nif>2686565z</nif>
+        <grupo_coti>1</grupo_coti>
+        <antiguedad>1 año</antiguedad>
+        <num_s.s>5889654578</num_s.s>
+    </trabajador> 
+    
+    <periodo_liqui>
+        <inicio>1-03-2020</inicio>
+        <fin>31-03-2020</fin>
+        <total_dias>30</total_dias>
+    </periodo_liqui>
+    
+    <devengos>
+        <percep_sala>
+            <salario_base>1500</salario_base>
+            <complemen_sala>
+                <incentivos>192</incentivos>
+                <horas_extra>
+                    <estructurales>
+                        <horas>60</horas>
+                    </estructurales>
+                    <f.mayor>
+                        <horas>100</horas>
+                    </f.mayor>
+                </horas_extra>
+                <gratifica_extra> ""</gratifica_extra>
+                <salarioEspe>""</salarioEspe>
+            </complemen_sala>           
+            <total_precep_sala>1852</total_precep_sala>
+        </percep_sala>
+        
+        <percerp_no_sala>
+            <indemnizaciones></indemnizaciones>
+            <prestaci_empresa></prestaci_empresa>
+            <prestaci_ss></prestaci_ss>
+            <otraspercep></otraspercep>
+            <total_precep_Nosala>0</total_precep_Nosala>
+
+        </percerp_no_sala>
+        
+        <total_devengos>1852</total_devengos>
+    </devengos>
+    
+    <basecoti_ss>
+        <conticomun>
+            <incapacidad_tempo>0</incapacidad_tempo>
+            <remu_mensual>1692</remu_mensual>
+            <prorrata>250</prorrata>
+            <total>1942</total>
+            <base_a_coti>1942</base_a_coti>
+        </conticomun>
+        
+        <conti_pro>
+            
+            <b.c.c.c>1942</b.c.c.c>
+            <horas_extra>160</horas_extra>
+            <total>2102</total>
+        </conti_pro>
+        
+        <bascoti_h.extra>
+            <estructurales>
+                <horas>60</horas>
+            </estructurales>
+            <f.mayor>
+                <horas>100</horas>
+            </f.mayor>
+            <total>160</total>
+        </bascoti_h.extra>
+        
+        <base_irpf>1852</base_irpf>    
+    </basecoti_ss>
+    
+    <deducciones>
+        <trabajador_ss>
+            <conceptos_a_coti>
+                <contigenci_comun>
+                    <base_coti>1942</base_coti>
+                    <porcentaje>4,7</porcentaje>
+                    <aportacion_trab>91,27</aportacion_trab>
+                </contigenci_comun>
+                
+                <desempleo>
+                    <base_coti>2102</base_coti>
+                    <porcentaje>1,55</porcentaje>
+                    <aportacion_trab>32,58</aportacion_trab>
+                </desempleo>
+                
+                <forma_profe>
+                    <base_coti>2102</base_coti>
+                    <porcentaje>0,10</porcentaje>
+                    <aportacion_trab>2,10</aportacion_trab>
+                </forma_profe>
+                                
+                <horas_extra>
+                    <fuerza_mayor>
+                        <horas>100</horas>
+                        <porcentaje>2</porcentaje>
+                        <aportacion_trab>2,00</aportacion_trab>
+                    </fuerza_mayor>
+                    
+                     <otras_horas>
+                        <horas>60</horas>
+                        <porcentaje>4,7</porcentaje>
+                        <aportacion_trab>2,82</aportacion_trab>
+                      </otras_horas>            
+                    
+                </horas_extra>                                                                                                     
+            </conceptos_a_coti>
+            
+            <total_aportacion>130</total_aportacion>                   
+        </trabajador_ss>
+        
+        <retencion_irpf>
+            <base_coti>1852</base_coti>
+            <porcentaje>13,0</porcentaje>
+            <aportacion_trab>240,76</aportacion_trab> 
+        </retencion_irpf>
+        
+        <anticipos>
+            <porcentaje></porcentaje>
+            <aportacion_trab></aportacion_trab> 
+        </anticipos>
+        
+        <valor_especie>
+            <porcentaje></porcentaje>
+            <aportacion_trab></aportacion_trab> 
+        </valor_especie>
+        
+        <otras_deduc>
+            <porcentaje></porcentaje>
+            <aportacion_trab></aportacion_trab> 
+        </otras_deduc>
+        
+        <total_a_dedu>371,53</total_a_dedu>     
+        
+        <liquido_a_perci>
+            <a_percibir>1480,47</a_percibir>
+            <fecha>
+                <dia>1</dia>
+                <mes>abril</mes>
+                <año>2011</año>
+            </fecha>
+            <firma>""</firma>
+            <sello>""</sello>
+            
+        </liquido_a_perci>
+    </deducciones>
+</nomina>

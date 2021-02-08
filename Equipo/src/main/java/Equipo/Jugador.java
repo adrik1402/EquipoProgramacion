@@ -25,6 +25,7 @@ public class Jugador {
         System.out.println(this.nombre + " " + this.apellidos + " " + this.posicion + " " + this.dorsal);
     }
 
+    
     // MODIFICA EL NOMBRE.
     public void setNombre(String nombre) {
 

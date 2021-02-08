@@ -1,4 +1,3 @@
-
 package Equipo;
 
 import java.util.Random;
@@ -6,95 +5,74 @@ import java.util.Scanner;
 
 public class principal {
 
-
     public static void main(String[] args) {
-       
-        Jugador[] plantilla;
-     
+        System.out.println("Cuantos jugadores quieres : ");
         Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Que desea hacer: 1.Generar equipo, 2.Desordenar equipo, 3.Buscar jugador, 4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, 6.Comparar algoritmos de orden,7.salir");
-        int opcion=sc.nextInt();
-        
-        while(opcion!=7){
-            switch (opcion){
-                case 1: System.out.println("Cuantos jugadores quieres : ");
-                        int cantidad= sc.nextInt();
-                        if (cantidad<101 && cantidad >0){
-                         plantilla = generarEquipo(cantidad);
-                        }else{
-                            System.out.println("La cantidad debe de ser mayor que 0 y menor que 100.");
+        int cantidad = sc.nextInt();
+
+        int opcion = 0;
+        Jugador[] plantilla = null;
+        while (opcion != 7) {
+            System.out.println("Que desea hacer: 1. Generar equipo, 2.Desordenar equipo, 3.Buscar jugador, 4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, 6.Comparar algoritmos de orden,7.salir");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    if (cantidad < 101 && cantidad > 0) {
+                        plantilla = generarEquipo(cantidad);
+
+                        for (Jugador jugador : plantilla) {
+                            jugador.imprimir();
                         }
-                               
-                case 2: desordenarEquipo(plantilla);
-               
-                case 3: busquedaBinaria( plantilla, plantilla.length);
-                
-                case 4: bubbleSort(plantilla);
-               
-                case 5: quickSort(plantilla, 0, plantilla.length-1);
-               
-                case 6:comparador( plantilla);
-                 
-                case 7:System.out.println("Salir");
-                 break;
-                   default: System.out.println("Error");
+
+                    } else {
+                        System.out.println("La cantidad debe de ser mayor que 0 y menor que 100.");
+                    }
                     break;
+
+                case 2:
+
+                    desordenarEquipo(plantilla);
+                    for (Jugador jugador : plantilla) {
+                        jugador.imprimir();
+                    }
+                    break;
+                case 3:
+                    System.out.println("Indique el dorsal del jugador a buscar: ");
+                    int dorsal = sc.nextInt();
+                    busquedaBinaria(plantilla, dorsal);
+                    if (dorsal != plantilla.length) {
+                        for (Jugador jugador : plantilla) {
+                            if (jugador.dorsal == dorsal) {
+                                jugador.imprimir();
+                            }
+                        }
+                    } else {
+                        System.out.println("El dorsal no existe");
+                    }
+                    break;
+                case 4:
+                    bubbleSort(plantilla);
+                    for (Jugador jugador : plantilla) {
+                        jugador.imprimir();
+                    }
+                    break;
+                case 5:
+                    quickSort(plantilla, 0, plantilla.length - 1);
+                    for (Jugador jugador : plantilla) {
+                        jugador.imprimir();
+                    }
+                    break;
+                case 6:
+                    comparador(plantilla);
+                    break;
+                case 7:
+                    System.out.println("Salir");
+                    break;
+                default:
+                    System.out.println("Error");
             }
         }
-     
-        
-
-//        System.out.println("Generar Equipo: ");
-//        Jugador[] plantilla = generarEquipo(cantidad);
-////      for(Jugador jugador:plantilla){
-////          jugador.imprimir();
-////      }
-//
-//        System.out.println("\t");
-//        System.out.println("\t");
-//
-//        System.out.println("Busqueda Binaria: ");
-//        System.out.println("El dorsal esta en: " + busquedaBinaria(plantilla, dorsal));
-//
-//        System.out.println("\t");
-//        System.out.println("\t");
-//
-//        System.out.println("Desordenar equipo: ");
-//        desordenarEquipo(plantilla);
-//      for(Jugador jugador:plantilla){
-//        jugador.imprimir(); 
-//      }
-        
-
-//        System.out.println("\t");
-//        System.out.println("\t");
-//
-//        System.out.println("Bubblesort: ");
-//        bubbleSort(plantilla);
-////        for(Jugador jugador:plantilla){
-////        jugador.imprimir();
-////        }  
-//
-//        System.out.println("\t");
-//        System.out.println("\t");
-
-//        quickSort(desorden, 0, desorden.length - 1);
-//        System.out.println("QuickSort: ");
-//
-//        System.out.println("\t");
-//        System.out.println("\t");
-//
-////        for(Jugador jugador:desorden){
-////        jugador.imprimir(); 
-////          }
-//        System.out.println("\t");
-//        System.out.println("\t");
-
-       
-
     }
-    //Funcion Generar Equipo.
 
     public static Jugador[] generarEquipo(int cantidad) {
         Jugador[] plantilla = new Jugador[cantidad];
@@ -183,17 +161,13 @@ public class principal {
         int j = der;
 
         Jugador temp;
-//            contadorT++;
         while (i < j) {
-//                contadorT++;
             while (player[i].getDorsal() <= pivote.getDorsal() && i < j) {
                 i++;
             }
-//                contadorT++;
             while (player[j].getDorsal() > pivote.getDorsal()) {
                 j--;
             }
-//                contadorT++;
             if (i < j) {
                 temp = player[i];
                 player[i] = player[j];
@@ -209,8 +183,9 @@ public class principal {
             quickSort(player, j + 1, der);
         }
     }
-         public static void comparador(Jugador[] plantilla){
-         Jugador[] desorden = (Jugador[]) plantilla.clone();
+
+    public static void comparador(Jugador[] plantilla) {
+        Jugador[] desorden = (Jugador[]) plantilla.clone();
         long startTime = System.nanoTime();
         bubbleSort(plantilla); // llamamos al método
         long endTime = System.nanoTime() - startTime; // tiempo en que se ejecuta su método
@@ -223,7 +198,7 @@ public class principal {
         quickSort(desorden, 0, desorden.length - 1); // llamamos al método
         endTime = System.nanoTime() - startTime; // tiempo en que se ejecuta su método
         System.out.println("Duración quick: " + (endTime) / 1e9 + " ms");
-     }
+    }
 
     public static String nombreAleatorio() {
         String[] nombresAleatorios = new String[1];
@@ -247,6 +222,5 @@ public class principal {
         String[] posicion = {"Portero", "Defensa", "Defensa", "Defensa", "Defensa", "Centrocampista", "Centrocampista", "Centrocampista", "Centrocampista", "Delantero", "Delantero", "Delantero"};
         return posicion[(int) (Math.floor(Math.random() * (posicion.length)))];
     }
-    
 
 }
