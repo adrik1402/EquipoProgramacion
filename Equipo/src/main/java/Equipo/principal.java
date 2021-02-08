@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class principal {
 
     public static void main(String[] args) {
-        System.out.println("Cuantos jugadores quieres : ");
+        
         Scanner sc = new Scanner(System.in);
-        int cantidad = sc.nextInt();
+        
 
         int opcion = 0;
         Jugador[] plantilla = null;
@@ -17,6 +17,8 @@ public class principal {
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
+                    System.out.println("Cuantos jugadores quieres : ");
+                    int cantidad = sc.nextInt();
                     if (cantidad < 101 && cantidad > 0) {
                         plantilla = generarEquipo(cantidad);
 
