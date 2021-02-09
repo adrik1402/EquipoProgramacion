@@ -1,3 +1,7 @@
+// Daniel Castillo Ruiz.
+// Jorge Carrillo Escobar
+// Adrian Kalvani Aguado
+
 package Equipo;
 
 import java.util.Random;
@@ -18,14 +22,12 @@ public class Jugador {
         this.apellidos = apellidos;
         this.posicion = posicion;
         this.dorsal = dorsal;
-
     }
 
     public void imprimir() {
         System.out.println(this.nombre + " " + this.apellidos + " " + this.posicion + " " + this.dorsal);
     }
 
-    
     // MODIFICA EL NOMBRE.
     public void setNombre(String nombre) {
 
@@ -67,12 +69,10 @@ public class Jugador {
         for (String entrada : this.posiciones) {
             if (posicion.equals(entrada)) {
                 return true;
-
             }
         }
         return false;
     }
-
     // MODIFICA EL DORSAL.
     private void setDorsal(int dorsal) {
         this.dorsal = dorsal;

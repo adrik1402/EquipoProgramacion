@@ -1,3 +1,7 @@
+// Daniel Castillo Ruiz.
+// Jorge Carrillo Escobar
+// Adrian Kalvani Aguado
+
 package Equipo;
 
 import java.util.Random;
@@ -6,33 +10,34 @@ import java.util.Scanner;
 public class principal {
 
     public static void main(String[] args) {
-        
+
         Scanner sc = new Scanner(System.in);
-        
 
         int opcion = 0;
         Jugador[] plantilla = null;
-        while (opcion != 7) {
-            System.out.println("Que desea hacer: 1. Generar equipo, 2.Desordenar equipo, 3.Buscar jugador, 4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, 6.Comparar algoritmos de orden,7.salir");
+        while (opcion != 7) {    //Creamos un switch que solo se salga al pulsar el 7
+            System.out.println("Que desea hacer: 1. Generar equipo, "
+                    + "2.Desordenar equipo, 3.Buscar jugador, "
+                    + "4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, "
+                    + "6.Comparar algoritmos de orden,7.salir");
             opcion = sc.nextInt();
+
+            // Elegir una opcion del menu de seleccion.
             switch (opcion) {
                 case 1:
                     System.out.println("Cuantos jugadores quieres : ");
                     int cantidad = sc.nextInt();
                     if (cantidad < 101 && cantidad > 0) {
                         plantilla = generarEquipo(cantidad);
-
                         for (Jugador jugador : plantilla) {
                             jugador.imprimir();
                         }
-
                     } else {
-                        System.out.println("La cantidad debe de ser mayor que 0 y menor que 100.");
+                        System.out.println("La cantidad debe de ser mayor que 0"
+                                + " y menor que 100.");
                     }
                     break;
-
                 case 2:
-
                     desordenarEquipo(plantilla);
                     for (Jugador jugador : plantilla) {
                         jugador.imprimir();
@@ -75,6 +80,7 @@ public class principal {
             }
         }
     }
+    //Genera el equipo llamando al constructor Jugador
 
     public static Jugador[] generarEquipo(int cantidad) {
         Jugador[] plantilla = new Jugador[cantidad];
@@ -101,10 +107,9 @@ public class principal {
             plantilla[valor2] = temporal;
         }
         return plantilla;
-
     }
-    //Funcion BusquedaBinaria
 
+    //Funcion BusquedaBinaria
     public static int busquedaBinaria(Jugador[] plantilla, int numero) {
         int izq = 0;
         int der = plantilla.length - 1;
@@ -127,7 +132,7 @@ public class principal {
         }
     }
 
-    //Funcion BubbleSort
+    //Funcion BubbleSort  (Ordenar mandando al numero gordo abajo)
     public static Jugador[] bubbleSort(Jugador[] player) {
         int n = player.length;
         Jugador temp;
@@ -147,16 +152,15 @@ public class principal {
                     player[j] = player[j + 1];
                     player[j + 1] = temp;
                     ordenado = false;
-
                 }
             }
-
         }
         System.out.println("Numero de pasos: " + contador);
         return player;
     }
 
-    //Funcion QuickSort
+    //Funcion QuickSort (Divide y venceras, pequeños a la izquierda 
+    //grandes a la derecha
     public static void quickSort(Jugador[] player, int izq, int der) {
         Jugador pivote = player[izq];
         int i = izq;
@@ -186,6 +190,7 @@ public class principal {
         }
     }
 
+    //Mostrar el tiempo que ha tardado cada funcion de orden(Bubble y Quick)
     public static void comparador(Jugador[] plantilla) {
         Jugador[] desorden = (Jugador[]) plantilla.clone();
         long startTime = System.nanoTime();
@@ -202,6 +207,7 @@ public class principal {
         System.out.println("Duración quick: " + (endTime) / 1e9 + " ms");
     }
 
+    //Guarda en un array nombres aleatorios
     public static String nombreAleatorio() {
         String[] nombresAleatorios = new String[1];
         String[] nombres = {"Besame", "David", "Baldomero", "Balduino", "Paco", "Baltasar", "Barry", "Bartolo",
@@ -210,6 +216,7 @@ public class principal {
         return nombres[(int) (Math.floor(Math.random() * (nombres.length)))];
     }
 
+    //Guarda en un array apellidos aleatorios
     public static String apellidosAleatorio() {
         String[] apellidosAleatorios = new String[2];
 
@@ -220,6 +227,7 @@ public class principal {
         return apellido[(int) (Math.floor(Math.random() * (apellido.length)))] + " " + apellido[(int) (Math.floor(Math.random() * (apellido.length)))];
     }
 
+    //Guarda en un array posiciones aleatorias   
     public static String posicionAleatoria() {
         String[] posicion = {"Portero", "Defensa", "Defensa", "Defensa", "Defensa", "Centrocampista", "Centrocampista", "Centrocampista", "Centrocampista", "Delantero", "Delantero", "Delantero"};
         return posicion[(int) (Math.floor(Math.random() * (posicion.length)))];
