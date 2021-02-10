@@ -1,7 +1,6 @@
 // Daniel Castillo Ruiz.
 // Jorge Carrillo Escobar
 // Adrian Kalvani Aguado
-
 package Equipo;
 
 import java.util.Random;
@@ -15,11 +14,12 @@ public class principal {
 
         int opcion = 0;
         Jugador[] plantilla = null;
-        while (opcion != 7) {    //Creamos un switch que solo se salga al pulsar el 7
+        while (opcion != 8) {    //Creamos un switch que solo se salga al pulsar el 7
             System.out.println("Que desea hacer: 1. Generar equipo, "
                     + "2.Desordenar equipo, 3.Buscar jugador, "
                     + "4.Ordenar Equipo Bubble, 5.Ordenar equipo Quick, "
-                    + "6.Comparar algoritmos de orden,7.salir");
+                    + "6.Comparar algoritmos de orden,7.Ordenar por mergeSort"
+                    + "8.salir");
             opcion = sc.nextInt();
 
             // Elegir una opcion del menu de seleccion.
@@ -27,7 +27,7 @@ public class principal {
                 case 1:
                     System.out.println("Cuantos jugadores quieres : ");
                     int cantidad = sc.nextInt();
-                    if (cantidad < 101 && cantidad > 0) {
+                    if (cantidad < 10001 && cantidad > 0) {
                         plantilla = generarEquipo(cantidad);
                         for (Jugador jugador : plantilla) {
                             jugador.imprimir();
@@ -73,6 +73,12 @@ public class principal {
                     comparador(plantilla);
                     break;
                 case 7:
+                    mergeSort(plantilla, plantilla.length);
+                    for (Jugador jugador : plantilla) {
+                        jugador.imprimir();
+                    }
+                    break;
+                     case 8:
                     System.out.println("Salir");
                     break;
                 default:
@@ -190,6 +196,44 @@ public class principal {
         }
     }
 
+    public static void merge(Jugador[] a, Jugador[] l, Jugador[] r, int left, int right) {
+        int i = 0, j = 0, k = 0;
+        while (i < left && j < right) {
+            if (l[i].dorsal <= r[j].dorsal) {
+                a[k++] = l[i++];
+            } else {
+                a[k++] = r[j++];
+            }
+        }
+        while (i < left) {
+            a[k++] = l[i++];
+        }
+        while (j < right) {
+            a[k++] = r[j++];
+        }
+
+    }
+
+    public static void mergeSort(Jugador[] array, int longitud) {
+        if (longitud < 2) {
+            return;
+        }
+        int mid = (longitud / 2);
+        Jugador[] izq = new Jugador[mid];
+        Jugador[] der = new Jugador[longitud - mid];
+
+        for (int i = 0; i < mid; i++) {
+            izq[i] = array[i];
+        }
+        for (int i = mid; i < longitud; i++) {
+            der[i - mid] = array[i];
+        }
+        mergeSort(izq, mid);
+        mergeSort(der, longitud - mid);
+
+        merge(array, izq, der, mid, longitud - mid);
+    }
+
     //Mostrar el tiempo que ha tardado cada funcion de orden(Bubble y Quick)
     public static void comparador(Jugador[] plantilla) {
         Jugador[] desorden = (Jugador[]) plantilla.clone();
@@ -199,12 +243,18 @@ public class principal {
         System.out.println("Duración bubble: " + (endTime) / 1e9 + " ms");
 
         System.out.println("\t");
-        System.out.println("\t");
 
         startTime = System.nanoTime();
         quickSort(desorden, 0, desorden.length - 1); // llamamos al método
         endTime = System.nanoTime() - startTime; // tiempo en que se ejecuta su método
         System.out.println("Duración quick: " + (endTime) / 1e9 + " ms");
+        
+        System.out.println("\t");
+        
+        startTime = System.nanoTime();
+        mergeSort(plantilla, plantilla.length); // llamamos al método
+        endTime = System.nanoTime() - startTime; // tiempo en que se ejecuta su método
+        System.out.println("Duración merge: " + (endTime) / 1e9 + " ms");
     }
 
     //Guarda en un array nombres aleatorios
